@@ -1,0 +1,34 @@
+{
+  "name": "tinify-webp",
+  "version": "1.0.0",
+  "description": "CLI tool for compressing images and converting to WebP format using Tinify",
+  "main": "index.js",
+  "bin": {
+    "tinify-webp": "bin/tinify-webp.js"
+  },
+  "dependencies": {
+    "tinify": "^1.7.1",
+    "commander": "^11.0.0"
+  },
+  "keywords": [
+    "image",
+    "compression",
+    "webp",
+    "tinify",
+    "converter"
+  ],
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foxhsx/tinify-webp.git"
+  },
+  "author": "cecil_he",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/foxhsx/tinify-webp/issues"
+  },
+  "homepage": "https://github.com/foxhsx/tinify-webp#readme"
+}
