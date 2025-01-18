@@ -104,8 +104,6 @@ program
   .version(package.version)
   .description('Compress and convert images to WebP format using Tinify')
   .argument('[path]', 'Path to image file or directory')
-  .option('-k, --key <apiKey>', 'Tinify API key')
-  .option('-r, --recursive', 'Process subdirectories recursively')
   .option('-h, --help', 'Display help information')
   .action(async (inputPath, options) => {
     try {
