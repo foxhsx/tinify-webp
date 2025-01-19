@@ -1,18 +1,20 @@
 # tinify-webp
 
-CLI tool for compressing images and converting to WebP format using Tinify
+English | [中文](https://github.com/foxhsx/tinify-webp/blob/main/README_ZH.md)
+
+CLI tool for compressing images and converting to WebP format using Tinify.
 
 ## Description
 
-tinify-webp is a command-line tool that helps you optimize and convert images to WebP format using the Tinify (TinyPNG/TinyJPG) API. It supports batch processing of images and provides efficient compression while maintaining high visual quality.
+tinify-webp is a command-line tool that helps you optimize and convert images to WebP format using the Tinify API. It supports batch processing of images and provides efficient compression while maintaining high visual quality.
 
 ## Features
 
-- Compress images using Tinify's smart compression algorithm
-- Convert images to WebP format
-- Cross-platform support (Windows, Linux, MacOS)
-- Preserve original image quality while reducing file size
-- Support for PNG, JPEG, and WebP input formats
+- [x] Compress images using Tinify's smart compression algorithm
+- [x] Convert images to WebP format
+- [x] Cross-platform support (Windows, Linux, MacOS)
+- [x] Preserve original image quality while reducing file size
+- [ ] Support for PNG, JPEG, and WebP input formats
 
 ## Installation
 
@@ -46,6 +48,13 @@ Add to your shell configuration file (~/.bashrc, ~/.zshrc, or ~/.config/fish/con
 ```bash
 export TINIFY_API_KEY=YOUR_API_KEY
 ```
+
+Then execute(The configuration file names need to correspond, this is just an example):
+
+```bash
+source ~/.zshrc
+```
+
 
 ## Usage
 
