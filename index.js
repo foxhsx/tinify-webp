@@ -9,7 +9,7 @@ const validateApiKey = (key) => {
     console.log('\nTo use this tool, you need to:');
     console.log('1. Sign up for a free API key at \x1b[34mhttps://tinypng.com/developers\x1b[0m');
     console.log('2. Set your API key using one of these methods:');
-    console.log('   - Use the --key option: tinify-img --key YOUR_API_KEY <path>');
+    console.log('   - Use the --key option: tinify-webp --key YOUR_API_KEY <path>');
     console.log('   - Set environment variable: export TINIFY_API_KEY=YOUR_API_KEY');
     process.exit(1);
   }

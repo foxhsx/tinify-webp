@@ -1,10 +1,10 @@
 {
-  "name": "tinify-img",
+  "name": "tinify-webp",
   "version": "2.0.0",
   "description": "CLI tool for compressing images and converting to WebP format using Tinify",
   "main": "index.js",
   "bin": {
-    "tinify-img": "bin/tinify-img.js"
+    "tinify-webp": "bin/tinify-webp.js"
   },
   "dependencies": {
     "tinify": "^1.7.1",

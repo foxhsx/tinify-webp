@@ -75,7 +75,7 @@ const showApiKeyHelp = () => {
   }
 
   console.log('Temporary usage:');
-  console.log('- Command line: tinify-img --key YOUR_API_KEY <path>');
+  console.log('- Command line: tinify-webp --key YOUR_API_KEY <path>');
   console.log('- Current session: export TINIFY_API_KEY=YOUR_API_KEY\n');
 };
 
