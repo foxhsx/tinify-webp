@@ -32,7 +32,7 @@ const validateApiKey = (key) => {
  * @param {string} inputPath - Path to the input image
  * @returns {Promise<void>}
  */
-const compressAndConvertImage = async (inputPath) => {
+const compressAndConvertImage = async (inputPath, options = {}) => {
   try {
     // Read the input file
     const inputBuffer = await fs.readFile(inputPath)
@@ -41,13 +41,18 @@ const compressAndConvertImage = async (inputPath) => {
     const dir = path.dirname(inputPath)
     const filename = path.basename(inputPath, path.extname(inputPath))
     
-    // Create output path with .webp extension
-    const outputPath = path.join(dir, `${filename}.webp`)
+    // Determine output format (default to webp)
+    const outputFormat = options.format || 'webp'
+    const mimeType = `image/${outputFormat === 'jpg' ? 'jpeg' : outputFormat}`
+    const extension = `.${outputFormat}`
     
-    // Compress and convert to WebP
+    // Create output path with appropriate extension
+    const outputPath = path.join(dir, `${filename}${extension}`)
+    
+    // Compress and convert to specified format
     const resultBuffer = await tinify.fromBuffer(inputBuffer)
       .convert({
-        type: "image/webp"
+        type: mimeType
       })
       .toBuffer()
     
@@ -67,8 +72,12 @@ const compressAndConvertImage = async (inputPath) => {
  * @returns {boolean}
  */
 const isImage = (filename) => {
-  const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp']
-  return imageExtensions.includes(path.extname(filename).toLowerCase())
+  const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp']
+  const ext = path.extname(filename).toLowerCase()
+  console.log(`检查文件: ${filename}\n扩展名: ${ext}`)
+  const result = imageExtensions.includes(ext)
+  console.log(`是否为支持的图片格式: ${result}`)
+  return result
 }
 
 /**
@@ -86,13 +95,13 @@ const processPath = async (inputPath, options = {}) => {
     
     if (stats.isFile()) {
       if (isImage(inputPath)) {
-        await compressAndConvertImage(inputPath)
+        await compressAndConvertImage(inputPath, options)
       } else {
         console.log(`Skipping non-image file: ${inputPath}`)
       }
     } else if (stats.isDirectory()) {
       const files = await fs.readdir(inputPath)
-      const imageFiles = files.filter(file => isImage(file))
+      const imageFiles = files.filter(file => isImage(path.join(inputPath, file)))
       
       if (imageFiles.length === 0) {
         console.log('No image files found in directory')
@@ -103,7 +112,7 @@ const processPath = async (inputPath, options = {}) => {
       
       for (const file of imageFiles) {
         const filePath = path.join(inputPath, file)
-        await compressAndConvertImage(filePath)
+        await compressAndConvertImage(filePath, options)
       }
       
       console.log('Finished processing all images in directory')

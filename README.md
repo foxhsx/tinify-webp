@@ -1,12 +1,12 @@
-# tinify-webp
+# tinify-img
 
 English | [中文](https://github.com/foxhsx/tinify-webp/blob/main/README_ZH.md)
 
-CLI tool for compressing images and converting to WebP format using Tinify.
+CLI tool for compressing images and converting to WebP\PNG\JPEG format using Tinify.
 
 ## Description
 
-tinify-webp is a command-line tool that helps you optimize and convert images to WebP format using the Tinify API. It supports batch processing of images and provides efficient compression while maintaining high visual quality.
+tinify-img is a command-line tool that helps you optimize and convert images to WebP\PNG\JPEG format using the Tinify API. It supports batch processing of images and provides efficient compression while maintaining high visual quality.
 
 ## Features
 
@@ -14,12 +14,12 @@ tinify-webp is a command-line tool that helps you optimize and convert images to
 - [x] Convert images to WebP format
 - [x] Cross-platform support (Windows, Linux, MacOS)
 - [x] Preserve original image quality while reducing file size
-- [ ] Support for PNG, JPEG, and WebP input formats
+- [x] Support for PNG, JPEG, and WebP input formats
 
 ## Installation
 
 ```bash
-npm install -g tinify-webp
+npm install -g tinify-img
 ```
 
 ## Prerequisites
@@ -61,26 +61,33 @@ source ~/.zshrc
 Basic usage:
 
 ```bash
-tinify-webp <path>
+tinify-img <path>
 ```
 
 ## Options
 
 - `-h, --help` - Display help information
 - `-v, --version` - Show version number
+- `-f, --format` - Specify the output format (webp/png/jpeg)
 
 ## Examples
 
 Process a single image:
 
 ```bash
-tinify-webp image.png
+tinify-img image.png
 ```
 
 Process a directory recursively:
 
 ```bash
-tinify-webp ./images
+tinify-img ./images
+```
+
+Specify output format:
+
+```bash
+tinify-img -f png image.png
 ```
 
 ## License

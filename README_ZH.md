@@ -2,11 +2,11 @@
 
 [English](https://github.com/foxhsx/tinify-webp/blob/main/README.md) | 中文
 
-使用 Tinify 压缩图像并转换为 WebP 格式的 CLI 工具。
+使用 Tinify 压缩图像并转换为 WebP\PNG\JPEG 格式的 CLI 工具。
 
 ## 描述
 
-tinify-webp 是一个命令行工具，用于使用 Tinify API 压缩图像并转换为 WebP 格式。它支持批量处理图像，并提供高效压缩同时保持视觉质量。
+tinify-img 是一个命令行工具，用于使用 Tinify API 压缩图像并转换为 WebP\PNG\JPEG 格式。它支持批量处理图像，并提供高效压缩同时保持视觉质量。
 
 ## 特性
 
@@ -14,12 +14,12 @@ tinify-webp 是一个命令行工具，用于使用 Tinify API 压缩图像并�
 - [x] 将图像转换为 WebP 格式
 - [x] 在 Windows、Linux 和 MacOS 上的跨平台支持
 - [x] 保留原始图像质量同时减少文件大小
-- [ ] 支持 PNG、JPEG 和 WebP 输入格式
+- [x] 支持 PNG、JPEG 和 WebP 输入格式
 
 ## 安装
 
 ```bash
-npm install -g tinify-webp
+npm install -g tinify-img
 ```
 
 ## 前提条件
@@ -67,19 +67,26 @@ tinify-webp <path>
 
 - `-h, --help` - 显示帮助信息
 - `-v, --version` - 显示版本号
+- `-f, --format` - 指定转换图片的格式
 
 ## 示例
 
 处理单个图像：
 
 ```bash
-tinify-webp image.png
+tinify-img image.png
 ```
 
 处理目录递归：
 
 ```bash
-tinify-webp ./images
+tinify-img ./images
+```
+
+指定转换图片格式：
+
+```bash
+tinify-img -f png image.png
 ```
 
 ## 许可证

@@ -75,7 +75,7 @@ const showApiKeyHelp = () => {
   }
 
   console.log('Temporary usage:');
-  console.log('- Command line: tinify-webp --key YOUR_API_KEY <path>');
+  console.log('- Command line: tinify-img --key YOUR_API_KEY <path>');
   console.log('- Current session: export TINIFY_API_KEY=YOUR_API_KEY\n');
 };
 
@@ -101,10 +101,11 @@ const showPermanentSetupTip = (key) => {
 showBanner();
 
 program
-  .version(package.version)
-  .description('Compress and convert images to WebP format using Tinify')
+  .version(package.version, '-v, --version')
+  .description('Compress and convert images to WebP\PNG\JPEG format using Tinify')
   .argument('[path]', 'Path to image file or directory')
   .option('-h, --help', 'Display help information')
+  .option('-f, --format <type>', 'Output format (webp, png, jpeg), defaults to webp')
   .action(async (inputPath, options) => {
     try {
       // Show help if --help flag is used or no path is provided
@@ -128,4 +129,4 @@ program
     }
   });
 
-program.parse(); 
+program.parse();
